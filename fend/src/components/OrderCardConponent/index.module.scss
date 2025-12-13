@@ -1,0 +1,198 @@
+.card {
+    box-shadow: 0 0 5px 1px rgba(231, 231, 231, 0.9607843137);
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #fff8ec;
+
+    .card_title {
+        display: flex;
+        justify-content: space-between;
+        .idCard {
+            display: inline-block;
+        }
+    }
+
+    .customer_infor {
+        display: flex;
+        flex-direction: column;
+        margin: 10px 10px 10px 20px;
+        padding-left: 20px;
+        border-left: 2px solid black;
+    }
+
+    .product_list {
+        h3 {
+            cursor: pointer;
+
+            i {
+                transform: translate(7px, 2px);
+            }
+
+            &:hover {
+                color: #7c7c7c;
+            }
+
+            transition: all .1s linear;
+        }
+
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .order_products_list {
+            padding-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 500px;
+            overflow: auto;
+
+            .product {
+                display: flex;
+                background-color: #f3f3f3;
+                padding: 10px;
+                align-items: center;
+                font-size: 13px;
+                justify-content: space-between;
+                border-radius: 5px;
+
+                .product_infor {
+                    .name {
+                        font-weight: 500;
+                        width: 550px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        text-wrap: nowrap
+                    }
+
+                    .type,
+                    .count {
+                        font-size: 12px;
+
+                        b {
+                            font-weight: 600;
+                            color: #4b4b4b;
+                        }
+                    }
+
+                    flex: 1;
+                    margin:0 10px;
+                    display: flex;
+                    height: 100%;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                }
+
+                img {
+                    width: 60px;
+                    height: 60px;
+                }
+            }
+
+        }
+
+
+
+    }
+
+    .order_infor {
+        margin-top: 20px;
+        border-top: 1px solid #ccc;
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+        padding: 10px;
+
+        .right {
+            div {
+                display: flex;
+                justify-content: space-between;
+                align-items: end;
+                gap: 20px;
+            }
+
+        }
+
+        .left {
+            display: flex;
+            flex-direction: column;
+
+            .payment_status {
+                font-size: 20px;
+                margin-top: auto;
+            }
+        }
+    }
+
+    .order_action {
+        display: flex;
+        justify-content: flex-end;
+        padding: 20px 10px 0 0;
+        gap: 20px;
+
+        button {
+            &:hover {
+                filter: brightness(.9);
+            }
+        }
+    }
+}
+@media (max-width: 1024px) {
+    .card{
+        .card_title{
+            font-size: 13px;
+        }
+        .customer_infor{
+            font-size: 12px;
+        }
+        .product_list{
+            .order_products_list{
+                .product{
+                    .product_infor{
+                        .name{
+                            // font-size: 10px;
+                            max-width: 500px;
+                        }
+                    }
+                    // .price{
+                    //     font-size: 10px;
+                    // }
+                }
+            }
+        }
+        .order_infor{
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+}
+@media (max-width: 740px) {
+    .card{
+        .card_title{
+            font-size: 13px;
+        }
+        .customer_infor{
+            font-size: 12px;
+        }
+        .product_list{
+            .order_products_list{
+                .product{
+                    .product_infor{
+                        .name{
+                            font-size: 10px;
+                            max-width: 140px;
+                        }
+                    }
+                    .price{
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+        .order_infor{
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+}

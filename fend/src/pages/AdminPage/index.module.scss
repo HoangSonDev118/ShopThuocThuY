@@ -1,0 +1,128 @@
+.header {
+    width: 100% !important;
+    height: 150px;
+    background-color: #fff47f2e;
+    font-size: 40px;
+    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-direction: column;
+    border-bottom: 2px solid #ccc;
+    color: rgba(92, 92, 92, 0.822);
+    position: relative;
+
+    span {
+        font-size: 13px;
+    }
+
+    .menuMobile {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 25px;
+        padding: 10px 20px 20px 10px;
+    }
+}
+
+.body {
+    height: 2000px;
+    display: flex;
+
+    .nav {
+        width: 300px;
+        height: 100%;
+        background-color: #fafafa;
+        border-right: 2px solid #ccc;
+
+        div {
+            color: rgba(36, 36, 36, 0.822);
+            font-weight: 500;
+            font-size: 16px;
+            padding: 20px 20px 20px 40px;
+            transition: all .1s linear;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #dfdfdf !important;
+            }
+        }
+
+        div:nth-child(2n+1) {
+            background-color: #f7f7f7;
+        }
+
+        .count{
+            display: inline-block;
+            background-color: red;
+            width: 20px;
+            height: 20px;
+            font-size: 11px;
+            font-weight: 800;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            float: right;
+        }
+    }
+
+    .content {
+        position: relative;
+        padding: 30px;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.lowRelution {
+    display: none;
+    font-weight: 600;
+    justify-content: center;
+    margin-top: 100px;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+@media (max-width: 1350px){
+    .body{
+        .content{
+            padding: 30px 0;
+        }
+        .nav{
+            width: 200px;
+            div{
+                font-size: 14px;
+                padding: 15px 20px 15px 30px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .header {
+        height: 100px;
+
+        div {
+            font-size: 23px;
+        }
+
+        span {
+            font-size: 12px;
+        }
+
+        .menuMobile {
+            display: block;
+        }
+    }
+
+    .body {
+        .nav {
+            display: none;
+        }
+    }
+}
+

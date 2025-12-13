@@ -1,0 +1,242 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 0 12px 6px rgba(145, 145, 145, 0.0705882353);
+    position: relative;
+    // div {
+    //     // min-height: 500px;
+    //     background-color: red;
+    //     position: absolute;
+    //     top: 50%;left: 50%;
+
+    img {
+        object-fit: cover;
+        // width: 200px;
+        width: 70px;
+        height: 70px;
+    }
+
+    // }
+    th {
+        background-color: #cef0ff;
+        padding: 16px;
+        color: #464646;
+        font-size: 13px;
+    }
+
+    .rowNodata {
+        height: 400px;
+        animation: none;
+        opacity: 1;
+
+        td {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            height: unset;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+            img {
+                width: 150px;
+                height: 110px;
+            }
+
+            p {
+                font-size: 20px;
+                color: #8a96a3;
+                font-weight: 500;
+            }
+        }
+
+        cursor: auto;
+
+        &:hover {
+            background-color: #fff !important;
+        }
+    }
+
+    tr {
+        // width: 200px;
+        opacity: 0;
+        cursor: pointer;
+        transition: all .1s linear;
+        border-bottom: 1px solid #f1f1f1;
+
+        animation: showRow .5s ease forwards;
+
+        &:hover {
+            background-color: #f0f0f0 !important;
+
+            i {
+                display: inline-block;
+            }
+        }
+    }
+
+    tr:first-child {
+        animation: none;
+        opacity: 1;
+    }
+
+    tr:nth-child(2n+1) {
+        background-color: #fbfbfbb0;
+    }
+
+    td {
+        font-size: 13px;
+        padding: 16px;
+        height: 60px;
+        max-width: 250px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: start;
+
+        // text-align: center;
+        span {
+            font-weight: 500;
+            display: inline-block;
+            transform: translateY(-2px);
+            margin: 0px 0 0 20px;
+        }
+    }
+
+    .table_checkbox,
+    .table_avatar,
+    .table_gender {
+        width: 5%;
+    }
+
+    .table_action {
+        width: 20%;
+        min-width: 97px;
+        // width: 110px;
+        text-align: center;
+        padding: 0;
+
+        // display: flex;
+        // justify-content: space-between;
+        i {
+            // display: none;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 20px;
+            border-radius: 5px;
+
+            &:hover {
+                background-color: #ccc;
+            }
+        }
+
+        i+i {
+            margin-left: 10px;
+        }
+
+        i:first-child {
+            color: #d08f00;
+        }
+
+        i:last-child {
+            color: #ff687c;
+
+        }
+    }
+
+    .table_phone,
+    .table_birthday {
+        width: 10%;
+    }
+
+    .table_full_name {
+        width: 14%;
+    }
+
+    .table_email {
+        width: 13%;
+    }
+
+    .table_user_name {
+        width: 12%;
+    }
+
+    .table_address {
+        width: 18%;
+    }
+
+    .table_phone,
+    .table_birthday,
+    .table_gender {
+        text-align: center;
+    }
+
+
+    .table_product_discount {
+        text-align: center;
+    }
+
+}
+
+@keyframes showRow {
+    0% {
+        opacity: 0;
+        transform: translateY(60px) scale(.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.centerColumn {
+    text-align: center;
+}
+
+@media(max-width: 1240px) {
+
+    .table_birthday,
+    .table_address,
+    .table_gender {
+        display: none;
+    }
+}
+
+@media (max-width: 1024px) {
+    .table_user_name {
+        display: none;
+    }
+
+    table {
+
+        .table_action {
+            i {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+@media (max-width: 650px) {
+
+        .table_full_name{
+            display: none;
+        }   
+    table td{
+        padding: 5px;
+        max-width: 150px;
+    }
+    .table_product_name{
+    }
+    .table_img {
+        img {
+            width: 50px;
+            height: 50px;
+        }
+    }
+}

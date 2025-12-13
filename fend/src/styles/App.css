@@ -1,0 +1,115 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+
+
+.toast_container {
+  font-size: 13px !important;
+  font-weight: 600;
+  width: 400px !important;
+  height: 80px !important;
+  border-radius: 32px !important;
+  top: 50px !important;
+
+}
+
+@media (max-width: 740px){
+  .toast_container {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 300px !important;
+  }
+}
+
+.Toastify__toast{
+  border-radius: 6px !important;
+  margin-bottom: 16px !important;
+}
+.btnOnTop{
+  /* background-color: red !important; */
+  position: fixed;
+  z-index: 9;
+  right: 20px;
+  animation: showBtnToTop ease-in-out .3s forwards;
+}
+
+@keyframes showBtnToTop {
+  0%{
+    bottom: -15%;
+    opacity: 0;
+    transform: scale(.5);
+  }
+  100%{
+    bottom: 30px;
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+
+/* .slick-dots{
+  display: flex !important;
+  justify-content: center;
+} */
+
+.slick-slider {
+  margin-bottom: 80px;
+}
+
+*:focus {
+  outline: none;
+}
+.slick-prev{
+  left: 0 !important;
+  z-index: 1;
+}
+.slick-next{
+  right: 0 !important;
+}
+.slick-prev, .slick-next{
+  width: auto !important;
+  height: auto !important;
+  /* background: none !important;
+  color: #ffffff86 !important; */
+}
+.slick-prev:before, .slick-next:before {
+  font-size: 50px !important;
+}
+
+.slick-dots li button:before {
+  /* font-size: 10px; */
+  color: #dfdfdf;
+  width: 10px;
+  height: 10px;
+}
+
+.slick-dots li.slick-active button:before {
+  color: rgb(208 143 0);
+  width: 60px; /* Đặt chiều dài dài hơn */
+  height: 10px;
+}
+
+.slick-dot-custom {
+  border-radius: 50px;
+  transition: all .3s linear;
+  width: 10px;
+  height: 10px;
+  background: #dfdfdf;
+  display: inline-block;
+}
+
+.slick-dots li.slick-active .slick-dot-custom {
+  width: 60px; /* Đặt chiều dài dài hơn */
+  height: 10px;
+  background: rgb(208 143 0);
+}
+.slick-dots li{
+  width: fit-content !important;
+}
+
+

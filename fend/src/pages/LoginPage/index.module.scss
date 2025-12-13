@@ -1,0 +1,136 @@
+.login_page {
+    padding: 30px;
+
+    .login_title {
+        margin: 20px;
+        font-size: 25px;
+        color: #d08f00;
+        font-weight: 500;
+    }
+
+    .login_email,
+    .login_password {
+        width: 100%;
+    }
+
+    label {
+        display: block;
+        margin: 5px;
+    }
+
+    span {
+        color: red;
+    }
+
+    .login_password_input,
+    .login_email_input {
+        width: 100%;
+
+        &:focus {
+            outline: none;
+            border: 2px solid #d08f00 !important;
+        }
+    }
+
+    .login_form {
+        margin: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+
+        .login_password {
+            position: relative;
+        }
+
+        .eyeIcon {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            right: 7px;
+            bottom: 6px;
+            text-align: center;
+            line-height: 30px;
+            color: rgba(44, 44, 44, 0.822);
+            transition: all .1s linear;
+            border-radius: 10px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgba(197, 197, 197, 0.315);
+            }
+        }
+
+        .login_option {
+            display: flex;
+            align-items: center;
+            // gap: 240px;
+            width: 100%;
+            justify-content: space-between;
+
+            .rememberMe {
+                display: flex;
+                align-items: center;
+            }
+
+            .forgotPassword {
+                a {
+                    color: #d08f00;
+                }
+            }
+        }
+
+        .login_footer {
+            display: flex;
+            margin: 20px;
+            gap: 20px;
+            align-items: center;
+
+            .login_submit {
+                &:hover {
+                    background-color: #a57100 !important;
+                }
+            }
+
+            .register_link {
+                color: #d08f00;
+            }
+        }
+    }
+}
+
+@media (max-width: 1240px) {
+    .login_page {
+        .login_form {
+            .login_footer {
+                flex-wrap: wrap;
+                margin: 0;
+                justify-content: center;
+                button {
+                    margin: 0 !important;
+                    width: 100% !important;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 741px) and (max-width: 1024px) {
+    .login_page {
+        padding: 10px;
+
+        .login_form {
+            margin: 30px;
+        }
+    }
+}
+
+@media (max-width: 740px) {
+    .login_page {
+        padding: 0;
+
+        .login_form {
+            margin: 30px;
+        }
+    }
+}

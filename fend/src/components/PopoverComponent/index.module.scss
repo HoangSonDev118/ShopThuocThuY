@@ -1,0 +1,62 @@
+.popover {
+    // position: fixed;
+    // top: 60px;
+    // left: 0;
+    font-size: 14px;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 14px 2px #7272723d;
+    width: 180px;
+    z-index: 15;
+    transform-origin: top left;
+    animation: showPopover .2s ease forwards;
+    div{
+        width: 100%;
+        background-color: white;
+        transition: all .1s linear;
+
+        &:first-child {
+            border-radius: 5px 5px 0 0;
+            &::after {
+                content: "";
+                position: absolute;
+                width: 15px;
+                height: 15px;
+                background-color: white;
+                border-radius: 2px;
+                left: 13px;
+                top: -6px;
+                transform: rotate(45deg);
+                transition: all .1s linear;
+            }
+            &:hover::after{
+                background-color: #f6f6f6;
+            }
+        }
+        &:last-child {
+            border-radius: 0 0 5px 5px;
+            color: #ff5b5b;
+            border-top: 1px solid #f6f6f6ba;
+            padding: 15px 20px;
+            cursor: pointer;
+        }
+        &:hover {
+            background-color: #f6f6f6;
+        }
+        a{
+            padding: 15px 20px;
+            display: block;
+            width: 100%;
+        }
+    }
+}
+
+@keyframes showPopover {
+    0%{
+        transform: scale(.3);
+        opacity: 0;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+}

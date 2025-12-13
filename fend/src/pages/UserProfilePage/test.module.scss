@@ -1,0 +1,281 @@
+.userProfile_page {
+    padding: 30px;
+
+    .user_profile_title {
+        margin: 20px;
+        font-size: 25px;
+        color: #d08f00;
+        font-weight: 500;
+    }
+
+    .wrapper {
+        margin: 60px 140px;
+
+        label {
+            display: block;
+            margin: 5px;
+            font-weight: 600;
+        }
+
+        input {
+            &:focus {
+                outline: none;
+                border: 2px solid #d08f00 !important
+            }
+        }
+
+        .user_profile_top {
+            .user_profile_avatar_and_username {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+
+                .user_profile_avatar {
+                    width: 200px;
+                    height: 200px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    position: relative;
+                    border: 2px solid rgba(119, 82, 5, 0.15);
+                    img {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+                .user_profile_username{
+                    width: 100%;
+                    input{
+                        width: 100%;
+                    }
+                }
+            }
+
+            .user_profile_infor {
+                padding:0 0 0 40px;
+                width: 100%;
+                height: 100%;
+
+                .user_infor_fullname,
+                .user_infor_email,
+                .user_infor_phone,
+                .user_infor_gender_and_birthday {
+                    width: 100%;
+                }
+
+                .user_infor_fullname,
+                .user_infor_email,
+                .user_infor_phone {
+                    input {
+                        width: 100%;
+                    }
+                }
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+
+                .user_infor_gender_and_birthday {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+
+                    label {
+                        display: inline;
+                    }
+
+                    input {
+                        background-color: rgb(238 237 237 / 22%);
+                        height: 43px;
+                        padding: 10px 20px;
+                        border-radius: 7px;
+                        border: 2px solid rgb(119 82 5 / 15%);
+                        cursor: text;
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                    }
+
+                    .user_infor_gender_wrap {
+                        display: inline-block;
+                        cursor: pointer;
+                        position: relative;
+                        select {
+                            border: 2px solid rgb(119 82 5 / 15%);
+                            background-color: rgb(238 237 237 / 22%);
+                            border-radius: 7px;
+                            cursor: pointer;
+                            padding: 10px 40px 10px 15px;
+                            font-size: 16px;
+                            -webkit-appearance: none;
+                            -moz-appearance: none;
+                            appearance: none;
+
+                            &:focus {
+                                border: 2px solid #d08f00 !important;
+                                outline: none;
+                            }
+                        }
+
+                        i {
+                            position: absolute;
+                            right: 9px;
+                            top: 16px;
+                            z-index: -1;
+
+                        }
+                    }
+                }
+            }
+        }
+
+        .user_profile_bottom {
+            margin-top: 20px;
+
+            .user_profile_bottom_address {
+                .localSelect {
+                    cursor: pointer;
+                    select {
+                        width: 100%;
+                        border: 2px solid rgb(119 82 5 / 15%);
+                        background-color: rgb(238 237 237 / 22%);
+                        border-radius: 7px;
+                        cursor: pointer;
+                        padding: 10px 40px 10px 15px;
+                        font-size: 15px;
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        appearance: none;
+
+                        &:focus {
+                            border: 2px solid #d08f00 !important;
+                            outline: none;
+                        }
+                    }
+
+                    i {
+                        position: absolute;
+                        right: 15px;
+                        top: 15px;
+                        z-index: -1;
+                    }
+                }
+            }
+
+            .user_profile_bottom_detail_address {
+                margin-top: 20px;
+
+                textarea {
+                    // width: 770px;
+                    width: 100%;
+                    height: 100px;
+                    padding: 10px 15px;
+                    font-size: 16px;
+                    border-radius: 7px;
+                    border: 2px solid rgb(119 82 5 / 15%);
+                    background-color: rgb(238 237 237 / 22%);
+                    resize: none;
+
+                    &:focus {
+                        border: 2px solid #d08f00 !important;
+                        outline: none;
+                    }
+                }
+            }
+
+            .user_profile_bottom_btn_area {
+                margin-top: 60px;
+                display: flex;
+                justify-content: center;
+                gap: 50px;
+
+                .resetBtn {
+                    &:hover {
+                        background-color: #ccc !important;
+                    }
+                }
+
+                .updateBtn {
+                    &:hover {
+                        filter: brightness(90%);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1240px) {
+    .userProfile_page {
+        .wrapper {
+            margin: 50px;
+        }
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .userProfile_page {
+        .wrapper {
+            margin: 50px;
+
+            .user_profile_top {
+                .user_profile_infor {
+                    padding: 0;
+                }
+
+                .user_infor_gender_and_birthday {
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 741px) {
+    .userProfile_page {
+        padding: 0;
+        .wrapper {
+            margin: 0;
+            padding: 20px;
+            label{
+                margin: 15px 0 5px 0;
+                font-size: 13px;
+            }
+            .user_profile_top {
+                .user_profile_infor {
+                    .user_infor_gender_and_birthday {
+                        flex-direction: column;
+                        label {
+                            display: block;
+                        }
+                        .user_infor_gender_wrap {
+                            width: 100%;
+                            i {
+                                right: 15px;
+                            }
+                        }
+                        input,
+                        select {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+            .user_profile_bottom{
+                .user_profile_bottom_address{
+                    .localSelect{
+                        i{
+                            right: 15px;
+                            // top: 50px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

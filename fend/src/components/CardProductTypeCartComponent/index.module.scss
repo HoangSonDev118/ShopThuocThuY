@@ -1,0 +1,222 @@
+.card {
+    box-shadow: 0 0 5px 1px rgba(231, 231, 231, 0.9607843137);
+    // width: 905px;
+    height: 100px;
+    background-color: #fff;
+    // user-select: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    overflow: hidden;
+    display: flex;
+    // justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+    cursor: pointer;
+
+    img {
+        width: 50px;
+    }
+
+    .card_infor {
+        flex: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+    }
+
+    .card_infor_count_and_delete,
+    .card_infor_price {
+        display: flex;
+        align-items: center;
+    }
+    .card_infor_price{
+        gap: 15px;
+    }
+    .card_name_and_type{
+        gap: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        // width: 300px;
+        // overflow: hidden;
+        // background-color: red;
+    }
+    
+    .card_name, .card_type {
+        width: 200px;
+        color: #7e7e7e;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-wrap: nowrap;
+        font-size: 13px;
+    }
+    .card_name{
+        font-weight: 500;
+    }
+    
+    .card_type{
+        font-size: 11px;
+        b{
+            font-weight: 600;
+        }
+    }
+    .card_price {
+        color: #c7c7c7;
+        display: inline-block;
+        // width: 85px;
+        margin-right: 10px;
+        margin-right: 5px;
+        font-size: 12px;
+        text-decoration: line-through;
+
+    }
+
+    .card_discount {
+        font-size: 10px;
+        background-color: red;
+        font-weight: 600;
+        color: white;
+        // margin-right: 50px;
+
+    }
+
+    .card_priceBeforDiscount {
+        font-size: 15px;
+        font-weight: 600;
+        color: #474747;
+        width: 80px;
+        transform: translateY(1px);
+
+    }
+
+    .group_count {
+        display: flex;
+
+        button {
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            border: 1px solid #ccc;
+            color: #5a5a5a;
+            cursor: pointer;
+            transition: all .1s linear;
+
+            &:hover {
+                background-color: rgb(208, 143, 0);
+                color: white;
+            }
+
+        }
+
+        button:first-child {
+            border-radius: 4px 0 0 4px;
+        }
+
+        button:last-child {
+            border-radius: 0 4px 4px 0;
+        }
+
+
+
+        .count_value {
+            font-size: 13px;
+            width: 40px;
+            height: 25px;
+            line-height: 25px;
+            text-align: center;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+        }
+    }
+
+    .card_delete {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 18px;
+        border-radius: 5px;
+        color: #ff687c;
+        text-align: center;
+        margin-left: 10px;
+
+        &:hover {
+            background-color: #ccc;
+        }
+    }
+}
+
+@media (min-width: 1241px) {
+    .card {
+        padding: 10px 20px 10px 30px;
+        .card_name {
+            width: 300px;
+        }
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1240px) {
+    .card {
+        padding: 10px 20px 10px 20px;
+        // gap: 0;
+        .card_name {
+            width: 200px;
+        }
+        .card_infor{
+            gap: 0;
+        }
+    }
+}
+@media (max-width: 1024px) {
+    .card {
+        height: auto;
+        
+        gap: 5px;
+        .card_name{
+            font-size: 14px;
+            width: 100%;
+            height: 45px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            line-height: 1.5;
+            text-wrap: wrap;
+        }
+        img {
+            width: 80px;
+        }
+        .card_infor {
+            width: 60%;
+            display: flex;
+            align-items: self-start;
+            flex-direction: column;
+            gap: 15px;
+        }
+    }
+}
+// @media (max-width: 740px) {
+//     .card {
+//         height: auto;
+//         gap: 5px;
+//         .card_name{
+//             font-size: 14px;
+//             width: 100%;
+//             height: 45px;
+//             display: -webkit-box;
+//             -webkit-box-orient: vertical;
+//             -webkit-line-clamp: 2;
+//             line-height: 1.5;
+//             text-wrap: wrap;
+//         }
+//         img {
+//             width: 80px;
+//         }
+//         .card_infor {
+//             width: 60%;
+//             display: flex;
+//             align-items: self-start;
+//             flex-direction: column;
+//             gap: 15px;
+//         }
+//     }
+// }

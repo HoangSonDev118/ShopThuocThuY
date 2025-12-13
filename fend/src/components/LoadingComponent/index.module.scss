@@ -1,0 +1,42 @@
+.overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #d0d0d071;
+    z-index: 1000;
+    animation: showLoading .5s ease
+}
+
+.loading {
+    width: 60px;
+    height: 60px;
+    background: conic-gradient(rgb(239 171 21 / 74%) 10%, rgba(255, 194, 62, 0.089));
+    border-radius: 50%;
+    -webkit-mask: radial-gradient(farthest-side, rgba(255, 255, 255, 0) calc(100% - 8px), #d19002 0);
+    animation: spinner 0.5s infinite linear;
+}
+
+@keyframes showLoading {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes spinner {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-360deg);
+    }
+}

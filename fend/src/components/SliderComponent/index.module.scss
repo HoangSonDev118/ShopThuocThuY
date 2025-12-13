@@ -1,0 +1,29 @@
+.slider_img_custom {
+    display: block;
+    margin: auto;
+}
+
+.slider_name_custom {
+    font-size: 14px;
+    text-align: center;
+    font-style: italic;
+    font-weight: 500;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+.custom_slider_list {
+    box-shadow: 0 0 5px 1px rgba(231, 231, 231, 0.9607843137);
+    padding: 25px 0;
+    border-radius: 15px;
+    margin: 0 20px;
+}
+
+.slider_container_type_category {
+    button::before {
+        color: #ffca43ed;
+    }
+    .item{
+        cursor: pointer;
+    }
+}

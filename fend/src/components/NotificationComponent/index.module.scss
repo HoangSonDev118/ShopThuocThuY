@@ -1,0 +1,109 @@
+.notifications {
+    i {
+        font-size: 20px;
+    }
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+
+    .notification {
+        position: relative;
+        animation: showRow .5s ease forwards;
+        width: 100%;
+        // background-color: #fff1c0;
+        cursor: pointer;
+        transition: all .1s linear;
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        padding: 20px 40px;
+        border-radius: 10px;
+        justify-content: space-between;
+
+        &:hover {
+            filter: brightness(.9);
+            .check{
+                display: none;
+            }
+            .deleteIcon{
+                display: block !important;
+            }
+        }
+
+        p {
+            font-size: 14px;
+        }
+        
+        .content {
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+        }
+        
+        .delete {
+            width: 25px;
+            height: 25px;
+            ;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .deleteIcon {
+                display: none;
+                font-size: 14px;
+            }
+            
+
+            transition: all .1s linear;
+            border-radius: 50%;
+
+            &:hover {
+                background-color: #ccc;
+            }
+        }
+
+        .check {
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            border-radius: 50%;
+            // position: absolute;
+            // left: 20px;
+            // top: 50%;
+            // transform: translateY(-50%);
+        }
+    }
+}
+
+@keyframes showRow {
+    0% {
+        opacity: 0;
+        // transform: translateY(60px) scale(.8);
+    }
+
+    100% {
+        opacity: 1;
+        // transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 740px) {
+    .notifications{
+        .notification{
+            gap: 10px;
+            padding: 15px;
+            font-size: 12px;
+            .content, .time{
+                font-size: 10px;
+            }
+            p{
+                font-size: 9px;
+            }
+            .check{
+                top: 20%;
+            }
+        }
+    }
+}

@@ -1,0 +1,116 @@
+.about_page {
+    padding: 30px;
+    min-height: 600PX;
+
+    .title {
+        margin: 20px;
+        font-size: 25px;
+        color: #d08f00;
+        font-weight: 500;
+    }
+
+    // .footer_infor_contact {
+    //     font-size: 19px;
+    //     text-transform: uppercase;
+    //     // font-family: 'Roboto', sans-serif;
+    //     font-weight: 600;
+
+    //     .footer_infor_contact_list {
+    //         padding-left: 10px;
+    //         line-height: 23px;
+    //         text-transform: none;
+    //         font-size: 17px;
+    //         font-weight: 400;
+    //         margin-top: 10px;
+
+    //         li {
+    //             margin: 10px;
+    //         }
+    //     }
+
+    //     .footer_category_and_contact {
+    //         margin-top: 40px;
+    //         display: flex;
+    //         justify-content: space-between;
+
+    //         .footer_category {
+    //             .footer_category_list {
+    //                 a {
+    //                     text-decoration: none;
+    //                     color: rgba(0, 0, 0, 0.75);
+    //                 }
+
+    //                 padding-left: 10px;
+    //                 line-height: 23px;
+    //                 text-transform: none;
+    //                 font-size: 17px;
+    //                 font-weight: 500;
+    //                 margin-top: 10px;
+
+    //                 li {
+    //                     margin: 10px;
+    //                 }
+    //             }
+    //         }
+
+    //         .footer_contact {
+    //             .footer_contact_list {
+    //                 display: flex;
+    //                 justify-content: space-evenly;
+    //                 margin-top: 30px;
+
+    //                 .footer_contact_item {
+    //                     cursor: pointer;
+    //                     overflow: hidden;
+    //                     width: 40px;
+    //                     height: 40px;
+    //                     background-size: cover;
+    //                     border-radius: 10px;
+    //                     transition: all .2s linear;
+
+    //                     &:hover {
+    //                         filter: brightness(80%);
+    //                     }
+    //                 }
+    //             }
+    //         }
+
+    //     }
+    // }
+
+    .footer_contact_list {
+        margin: 50px;
+        display: flex;
+        gap: 10px;
+
+        .footer_contact_item {
+            cursor: pointer;
+            overflow: hidden;
+            width: 40px;
+            height: 40px;
+            background-size: cover;
+            border-radius: 10px;
+            transition: all 0.2s linear;
+        }
+    }
+}
+
+@media (max-width: 1240px) {
+    .about_page {}
+}
+
+@media (min-width: 741px) and (max-width: 1024px) {
+    .about_page {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 740px) {
+    .about_page {
+        padding: 0;
+
+        .inforText {
+            margin: 40px 10px 0 10px;
+        }
+    }
+}
