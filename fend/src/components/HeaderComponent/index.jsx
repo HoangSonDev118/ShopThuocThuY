@@ -263,19 +263,19 @@ const HeaderComponent = () => {
                                 <div>
                                     Sản phẩm
                                     <ul>
-                                        <a to="/login">Tất cả sản phẩm</a>
-                                        <a to="/register">Men tiêu hóa & chế phẩm sinh học</a>
-                                        <a to="/cart">Vacin cho chó</a>
+                                        <a to="/products">Tất cả sản phẩm</a>
+                                        <a to="/product/type/Sản phẩm cho chó">Men tiêu hóa & chế phẩm sinh học</a>
+                                        <a to="/product/type/Sản phẩm cho chó">Vacin cho chó</a>
                                     </ul>
                                 </div>
-                                <a href='/payment' >Liên hệ</a>
+                                <a href='/contact' >Liên hệ</a>
                             </NavMobileComponent>}
                         </div>
                         <NavComponent>
                             <a to='/'>Trang chủ</a>
                             <a to='/news'>Tin tức</a>
                             <a to='/distributor'>Nhà phân phối</a>
-                            <a to='/payment'>Sản phẩm</a>
+                            <a to='/products'>Sản phẩm</a>
                             <a to='/about'>Giới thiệu</a>
                             <a to='/contact'>Liên hệ</a>
                         </NavComponent>
@@ -314,7 +314,7 @@ const HeaderComponent = () => {
                             <a to='/'>Trang chủ</a>
                             <a to='/news'>Tin tức</a>
                             <a to='/distributor'>Nhà phân phối</a>
-                            <a to='/payment'>Sản phẩm</a>
+                            <a to='/products'>Sản phẩm</a>
                             <a to='/about'>Giới thiệu</a>
                             <a to='/contact'>Liên hệ</a>
                         </NavComponent>
@@ -345,7 +345,7 @@ const HeaderComponent = () => {
                             <a to='/'>Trang chủ</a>
                             <a to='/news'>Tin tức</a>
                             <a to='/distributor'>Nhà phân phối</a>
-                            <a to='/payment'>Sản phẩm</a>
+                            <a to='/products'>Sản phẩm</a>
                             <a to='/about'>Giới thiệu</a>
                             <a to='/contact'>Liên hệ</a>
                         </NavComponent>
@@ -405,9 +405,9 @@ const HeaderComponent = () => {
                         <div>
                             Thông tin
                             <ul>
-                                <a to="/login">Tất cả sản phẩm</a>
-                                <a to="/register">Men tiêu hóa & chế phẩm sinh học</a>
-                                <a to="/login">Vacin cho mèo</a>
+                                <a to="/products">Tất cả sản phẩm</a>
+                                <a to="/product/type/Sản phẩm cho chó">Men tiêu hóa & chế phẩm sinh học</a>
+                                <a to="/product/type/Sản phẩm cho mèo">Vacin cho mèo</a>
                             </ul>
                         </div>
                         <a href='/news' >Tin tức</a>
@@ -416,13 +416,13 @@ const HeaderComponent = () => {
                         <div>
                             Sản phẩm
                             <ul>
-                                <a to="/login">Tất cả sản phẩm</a>
-                                <a to="/register">Men tiêu hóa & chế phẩm sinh học</a>
-                                <a to="/cart">Vacin cho chó</a>
+                                <a to="/products">Tất cả sản phẩm</a>
+                                <a to="/product/type/Sản phẩm cho chó">Men tiêu hóa & chế phẩm sinh học</a>
+                                <a to="/product/type/Sản phẩm cho chó">Vacin cho chó</a>
                             </ul>
                         </div>
 
-                        <a href='/payment' >Liên hệ</a>
+                        <a href='/contact' >Liên hệ</a>
                     </NavMobileComponent>}
                     {showUserMobile && <NavMobileComponent close={closeUserMobile} type={0}>
                         {userInfor.isAdmin ? (<a href='/system/admin' >Quản lý hệ thống</a>)

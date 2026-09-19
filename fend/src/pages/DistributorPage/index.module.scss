@@ -50,6 +50,59 @@
         justify-items: center;
         row-gap: 30px;
     }
+
+    .emptyState {
+        margin: 60px auto 20px;
+        width: min(100%, 500px);
+        background: #fff;
+        border: 1px solid #f1dfb2;
+        border-radius: 16px;
+        padding: 36px 24px;
+        text-align: center;
+
+        .emptyIcon {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            background: #fff6e3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d08f00;
+            font-size: 38px;
+        }
+
+        h3 {
+            margin: 0 0 10px;
+            color: #333;
+            font-size: 28px;
+        }
+
+        p {
+            margin: 0;
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .continueShoppingBtn {
+            margin-top: 22px;
+            border: none;
+            background: #d08f00;
+            color: white;
+            border-radius: 999px;
+            padding: 12px 28px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+
+            &:hover {
+                opacity: 0.9;
+            }
+        }
+    }
 }
 
 @media (min-width: 1024px) and (max-width: 1240px) {

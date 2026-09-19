@@ -79,6 +79,12 @@ export const routes = [
         showFooter: true
     },
     {
+        path: '/products',
+        page: ProductGroupPage,
+        showHeader: true,
+        showFooter: true
+    },
+    {
         path: '/products/:slugify',
         page: DetailProductPage,
         showHeader: true,

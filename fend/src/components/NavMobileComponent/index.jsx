@@ -124,7 +124,7 @@ const NavMobileComponent = (props) => {
                                         </div>
                                         <ul className={`${styleModule.nav_product_list_mobile}`}>
                                             {child.props.children[1].props.children.map((subChild, index) =>
-                                                <Link key={index} to='/payment' className={`${styleModule.nav_product_item_mobile}`} onClick={close}>{subChild.props.children}</Link>
+                                                <Link key={index} to='/products' className={`${styleModule.nav_product_item_mobile}`} onClick={close}>{subChild.props.children}</Link>
                                             )}
                                         </ul>
                                     </div>

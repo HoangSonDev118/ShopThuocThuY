@@ -8,34 +8,32 @@ import LoadingComponent from '../../components/LoadingComponent';
 const ProductGroupPage = () => {
 
     const location = useLocation();
-
+    const { slugify } = useParams();
     const [typeActive, setTypeActive] = useState(-1)
-
-
-    const { type } = location.state || {};
     const [dataTypes, setDataTypes] = useState([]);
+    const [products, setProducts] = useState([])
+    const [name, setName] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
+    const [productType, setProductsType] = useState([])
 
     const handleGetData = async () => {
         setIsLoading(true)
         const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/type-product/get-all-type-product-name`)
-        setDataTypes(response.data.types)
+        setDataTypes(response.data.types || [])
         setIsLoading(false)
     }
-    useEffect(() => {
-        if (!type) return
-        handleGetData()
-    }, [])
-
-    const { slugify } = useParams();
-
-    const [products, setProducts] = useState([])
-    const [name, setName] = useState('')
-    const [isLoading, setIsLoading] = useState(false)
-
-    const [productType, setProductsType] = useState([])
 
     const getProduct = async () => {
         setIsLoading(true)
+
+        if (location.pathname === '/products') {
+            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/product/get-all-products-card`)
+            setName('Tất cả sản phẩm')
+            setProducts(response.data?.products || [])
+            setIsLoading(false)
+            return
+        }
+
         if (location.pathname.split('/')[2] === 'company') {
             await axios.get(`${process.env.REACT_APP_BASE_URL}/distributor-product/get-detail-distributor-product-name/${slugify}`)
                 .then(async res => {
@@ -59,9 +57,11 @@ const ProductGroupPage = () => {
                 })
         }
     }
+
     useEffect(() => {
+        handleGetData()
         getProduct()
-    }, [])
+    }, [location.pathname, slugify])
 
     const handleClickType = (i) => {
         if (i === typeActive) {
@@ -80,10 +80,9 @@ const ProductGroupPage = () => {
     }
 
     useEffect(() => {
-        if (typeActive===-1) return
-        console.log(dataTypes[typeActive]?.name)
+        if (typeActive === -1) return
         handleGetProductType(dataTypes[typeActive]?.name)
-    }, [typeActive])
+    }, [typeActive, dataTypes])
 
     if (products.length > 0) {
         return (
@@ -131,7 +130,27 @@ const ProductGroupPage = () => {
     }
     else {
         return (
-            <h3>Không có sản phẩm</h3>
+            <div className={`${styleModule.DistributorPage} grid wide`}>
+                <div className={styleModule.product_show_group}>
+                    <div className={`${styleModule.product_title}`}>
+                        <h3>{name || 'Sản phẩm'}</h3>
+                    </div>
+
+                    <div className={styleModule.emptyState}>
+                        <div className={styleModule.emptyIcon}>
+                            <i className="fa-solid fa-box-open"></i>
+                        </div>
+                        <h3>Không có sản phẩm</h3>
+                        <p>Hiện tại danh mục này chưa có sản phẩm nào để hiển thị.</p>
+                        <button
+                            className={styleModule.continueShoppingBtn}
+                            onClick={() => window.location.href = '/'}
+                        >
+                            Tiếp tục mua sắm
+                        </button>
+                    </div>
+                </div>
+            </div>
         )
     }
 }

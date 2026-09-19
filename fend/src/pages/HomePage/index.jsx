@@ -17,12 +17,16 @@ import buffaloImg from '../../assets/images/ProductTypeAnimal/008-buffalo.png'
 import goatImg from '../../assets/images/ProductTypeAnimal/002-goat.png'
 
 
-import img1 from '../../assets/images/banner1.jpg'
-import img2 from '../../assets/images/banner2.jpg'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import LoadingComponent from '../../components/LoadingComponent';
 
+const bannerImages = [
+    // 'https://res.cloudinary.com/arlo65tv/image/upload/v1789812061/Screenshot_2026-09-19_170049.png',
+    'https://res.cloudinary.com/arlo65tv/image/upload/v1789812191/Screenshot_2026-09-19_170122.png',
+    // 'https://res.cloudinary.com/arlo65tv/image/upload/v1789812192/Screenshot_2026-09-19_170212.png',
+    'https://res.cloudinary.com/arlo65tv/image/upload/v1789812192/Screenshot_2026-09-19_170303.png'
+]
 
 
 const HomePage = () => {
@@ -112,12 +116,7 @@ const HomePage = () => {
         <div className={`${styleModule.home_page} grid wide`}>
             <SliderComponent
                 type='banner'
-                imgs={[
-                    { img: img1 },
-                    { img: img2 },
-                    { img: img1 },
-                    { img: img2 }
-                ]}
+                imgs={bannerImages.map((img) => ({ img }))}
             />
 
 

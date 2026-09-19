@@ -95,8 +95,8 @@ function ModalAddDistributorComponent({ onClose, onSubmit, distributor }) {
                                     'token': `Bearer ${access_token}`
                                 }
                             })
-                                .then(response1 => {
-                                    if (!response1.data.status === 200) {
+                                .then((response1) => {
+                                    if (response1.status !== 200) {
                                         throw new Error('API 1 call failed');
                                     }
                                     return response1.data;
@@ -108,8 +108,8 @@ function ModalAddDistributorComponent({ onClose, onSubmit, distributor }) {
                                             'token': `Bearer ${access_token}`
                                         }
                                     })
-                                        .then(response1 => {
-                                            if (!response1.data.status === "successd") {
+                                        .then((response1) => {
+                                            if (response1.status !== 200) {
                                                 throw new Error('API 1 call failed');
                                             }
                                             return response1.data;

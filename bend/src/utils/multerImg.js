@@ -1,49 +1,62 @@
 const multer = require('multer');
-const path = require('path');
-const fs = require('fs');
+const cloudinary = require('cloudinary').v2;
 
-
-const getStorageProductPath = () => {
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = String(now.getMonth() + 1).padStart(2, '0');
-    return `public/uploads/images/product/${year}/${month}`;
-};
-// Cấu hình Multer
-const storageProduct = multer.diskStorage({
-    destination: function (req, file, cb) {
-        const storagePath = getStorageProductPath();
-        fs.mkdirSync(storagePath, { recursive: true }); // Tạo thư mục nếu chưa tồn tại
-        cb(null, storagePath);
-    },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + path.extname(file.originalname)); // Đặt tên file theo thời gian hiện tại + đuôi file gốc
-    }
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+    secure: true,
 });
 
 const uploadProductImg = multer({
-    storage: storageProduct,
-});
-
-const getStorageDistributorPath = () => {
-    return `public/uploads/images/distributor`;
-};
-// Cấu hình Multer
-const storageDistributor = multer.diskStorage({
-    destination: function (req, file, cb) {
-        const storagePath = getStorageDistributorPath();
-        fs.mkdirSync(storagePath, { recursive: true }); // Tạo thư mục nếu chưa tồn tại
-        cb(null, storagePath);
+    storage: multer.memoryStorage(),
+    limits: {
+        fileSize: 10 * 1024 * 1024,
     },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + path.extname(file.originalname)); // Đặt tên file theo thời gian hiện tại + đuôi file gốc
-    }
+    fileFilter: (req, file, cb) => {
+        if (!file.mimetype.startsWith('image/')) {
+            return cb(new Error('Only image files are allowed'));
+        }
+        cb(null, true);
+    },
 });
 
 const uploadDistributorImg = multer({
-    storage: storageDistributor,
+    storage: multer.memoryStorage(),
+    limits: {
+        fileSize: 10 * 1024 * 1024,
+    },
+    fileFilter: (req, file, cb) => {
+        if (!file.mimetype.startsWith('image/')) {
+            return cb(new Error('Only image files are allowed'));
+        }
+        cb(null, true);
+    },
 });
 
+const uploadToCloudinary = (file, folder = 'ecommerce') => {
+    return new Promise((resolve, reject) => {
+        const stream = cloudinary.uploader.upload_stream(
+            {
+                folder,
+                resource_type: 'image',
+            },
+            (error, result) => {
+                if (error) {
+                    reject(error);
+                    return;
+                }
+                resolve(result);
+            }
+        );
 
+        stream.end(file.buffer);
+    });
+};
 
-module.exports = { uploadProductImg, uploadDistributorImg }
+module.exports = {
+    uploadProductImg,
+    uploadDistributorImg,
+    uploadToCloudinary,
+    cloudinary,
+};

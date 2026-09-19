@@ -16,7 +16,8 @@ const SliderComponent = (props) => {
         }
     }, [])
 
-    const handleClickSlider = (path)=>{
+    const handleClickSlider = (path) => {
+        if (type !== 'category' || !path) return
         navigate(`/product/${path}`, { state: { type: 'type_animal' } })
     }
 
@@ -71,7 +72,12 @@ const SliderComponent = (props) => {
         <div className={ type==='category' ? styleModule.slider_container_type_category : styleModule.slider_container_type_banner} ref={sliderRef}>
             <Slider {...settings}>
                 {imgs?.map((image, index) => (
-                    <div key={index} onClick={()=>handleClickSlider(image.to)} className={styleModule.item}>
+                    <div
+                        key={index}
+                        onClick={() => handleClickSlider(image.to)}
+                        className={styleModule.item}
+                        style={type !== 'category' ? { cursor: 'default' } : undefined}
+                    >
                         <img className={type === 'category' ? styleModule.slider_img_custom : ''} src={image.img} alt={`Slide ${index}`} style={{ width: type === 'category' ? '30%' : '100%' }} />
                         {type === 'category' && <h3 className={styleModule.slider_name_custom}>{image.name}</h3>}
                     </div>

@@ -74,8 +74,8 @@ function ModalSelectDistributorComponent({ onClose, onSubmit, selectedDistributo
                         'token': `Bearer ${access_token}`
                     }
                 })
-                    .then(response1 => {
-                        if (!response1.data.status === 200) {
+                    .then((response1) => {
+                        if (response1.status !== 200) {
                             throw new Error('API 1 call failed');
                         }
                         return response1.data;
@@ -86,7 +86,7 @@ function ModalSelectDistributorComponent({ onClose, onSubmit, selectedDistributo
                                 'token': `Bearer ${access_token}`
                             }
                         })
-                            .then(response2 => {
+                            .then((response2) => {
                                 if (response2.status === 200) {
                                     const notifySuccess = () => toast.success("Xóa nhà phân phối thành công");
                                     notifySuccess()
