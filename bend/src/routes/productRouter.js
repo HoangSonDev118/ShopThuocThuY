@@ -1,5 +1,5 @@
-const productController = require('../Controllers/productController')
-const authMiddleware = require('../Middlewares/authMiddleware')
+const productController = require('../controllers/productController')
+const authMiddleware = require('../middlewares/authMiddleware')
 
 
 

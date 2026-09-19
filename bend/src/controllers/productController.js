@@ -1,5 +1,5 @@
-const Product = require("../Models/productModel");
-const productService = require("../Services/productService");
+const Product = require("../models/productModel");
+const productService = require("../services/productService");
 const { toLowerCaseNonAccentVietnamese } = require("../utils/toLowerCaseNonAccentVietnamese");
 
 const productController = {

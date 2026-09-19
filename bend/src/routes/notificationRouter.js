@@ -1,7 +1,7 @@
-// const productController = require('../Controllers/productController')
+// const productController = require('../controllers/productController')
 
 const notificationController = require('../controllers/notificationController')
-const authMiddleware = require('../Middlewares/authMiddleware')
+const authMiddleware = require('../middlewares/authMiddleware')
 
 
 const router = require('express').Router()

@@ -1,6 +1,6 @@
-// const productController = require('../Controllers/productController')
+// const productController = require('../controllers/productController')
 const typeProductController = require('../controllers/typeProductController')
-const authMiddleware = require('../Middlewares/authMiddleware')
+const authMiddleware = require('../middlewares/authMiddleware')
 
 
 

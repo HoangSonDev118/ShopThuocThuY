@@ -1,4 +1,4 @@
-const Product = require("../Models/productModel")
+const Product = require("../models/productModel")
 const { slugify } = require("../utils/stringToSlugify")
 
 const productService = {
