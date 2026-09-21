@@ -36,7 +36,7 @@ const UserProfilePage = () => {
     const mutation = useMutationHook(
         (dataReq) => userService.updateUserApi(dataReq)
     )
-    const { data, isLoading, isSuccess } = mutation
+    const { data, isLoading } = mutation
     useEffect(() => {
         if (data?.status === 200) {
             const notifySuccess = () => toast.success("Cập nhật thông tin thành công");
@@ -45,7 +45,7 @@ const UserProfilePage = () => {
                 window.location.reload();
             }, 3000)
         }
-    }, [isSuccess])
+    }, [data?.status])
 
 
 
@@ -202,7 +202,7 @@ const UserProfilePage = () => {
                     <div className="col l-4 c-12 m-12">
                         <div className={`${styleModule.user_profile_avatar_and_username}`}>
                             <div className={styleModule.user_profile_avatar} >
-                                <img src={logoUser} />
+                                <img src={logoUser} alt="Ảnh đại diện người dùng" />
                             </div>
                             <div className={styleModule.user_profile_username}>
                                 <div className={`${styleModule.user_infor_username}`}>

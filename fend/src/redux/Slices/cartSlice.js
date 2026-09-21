@@ -17,9 +17,9 @@ export const cartSlice = createSlice({
         },
         addProduct: (state, action) => {
             console.log('add', action.payload);
-            if (state.products.some((product) => (product.id == action.payload.id) && (product.product_type.idType == action.payload.product_type.idType))) {
+            if (state.products.some((product) => (product.id === action.payload.id) && (product.product_type.idType === action.payload.product_type.idType))) {
                 state.products.forEach(product => {
-                    if ((product.id == action.payload.id) && (product.product_type.idType == action.payload.product_type.idType)) {
+                    if ((product.id === action.payload.id) && (product.product_type.idType === action.payload.product_type.idType)) {
                         product.count = action.payload.count ? product.count += action.payload.count : product.count += 1
                     }
                 })
@@ -44,7 +44,7 @@ export const cartSlice = createSlice({
         },
         decrementProduct: (state, action) => {
             state.products.forEach(product => {
-                if ((product.id == action.payload.id) && (product.product_type.idType == action.payload.product_type.idType)) {
+                if ((product.id === action.payload.id) && (product.product_type.idType === action.payload.product_type.idType)) {
                     if (product.count > 1) {
                         product.count--
                     }
@@ -55,7 +55,7 @@ export const cartSlice = createSlice({
         },
         deleteProduct: (state, action) => {
             state.count--
-            state.products.splice(state.products.findIndex(product => (product.id == action.payload.id) && (product.product_type.idType == action.payload.product_type.idType)), 1);
+            state.products.splice(state.products.findIndex(product => (product.id === action.payload.id) && (product.product_type.idType === action.payload.product_type.idType)), 1);
             state.totalPrice = state.products.reduce((total, product) => product.check ? (total + product.price * product.count) : total, 0);
             state.totalDiscount = state.products.reduce((total, product) => product.check ? (total + product.price * (product.discount / 100) * product.count) : total, 0);
         },
@@ -63,7 +63,7 @@ export const cartSlice = createSlice({
         changeCheck: (state, action) => {
             // console.log('checksda');
             state.products.forEach(product => {
-                if ((product.id == action.payload.id) && (product.product_type.idType == action.payload.product_type.idType)) {
+                if ((product.id === action.payload.id) && (product.product_type.idType === action.payload.product_type.idType)) {
                     product.check = !product.check
                     console.log('check', product.check);
                 }

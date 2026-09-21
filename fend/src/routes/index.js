@@ -1,6 +1,5 @@
 
 import AboutPage from '../pages/AboutPage'
-import AdminPage from '../pages/AdminPage'
 import CartPage from '../pages/CartPage'
 import CheckoutPage from '../pages/CheckoutPage'
 import ContactPage from '../pages/ContatcPage'
@@ -14,7 +13,6 @@ import PaymentPage from '../pages/PaymentPage'
 import ProductGroupPage from '../pages/ProductGroupPage'
 import RegisterPage from '../pages/RegisterPage/'
 import ResultSearchPage from '../pages/ResultSearchPage'
-import UserProfilePage from '../pages/UserProfilePage'
 
 export const routes = [
     {
