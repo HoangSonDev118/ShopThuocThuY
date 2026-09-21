@@ -15,6 +15,8 @@ const ProductGroupPage = () => {
     const [name, setName] = useState('')
     const [isLoading, setIsLoading] = useState(false)
     const [productType, setProductsType] = useState([])
+    const [currentPage, setCurrentPage] = useState(1)
+    const [totalPage, setTotalPage] = useState(1)
 
     const handleGetData = async () => {
         setIsLoading(true)
@@ -23,13 +25,15 @@ const ProductGroupPage = () => {
         setIsLoading(false)
     }
 
-    const getProduct = async () => {
+    const getProduct = async (page = currentPage) => {
         setIsLoading(true)
 
         if (location.pathname === '/products') {
-            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/product/get-all-products-card`)
+            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/product/get-all-products-card?limit=20&page=${page}`)
             setName('Tất cả sản phẩm')
             setProducts(response.data?.products || [])
+            setTotalPage(Math.max(response.data?.totalPage || 1, 1))
+            setCurrentPage(Number(response.data?.curentPage || page))
             setIsLoading(false)
             return
         }
@@ -59,9 +63,18 @@ const ProductGroupPage = () => {
     }
 
     useEffect(() => {
+        setCurrentPage(1)
         handleGetData()
-        getProduct()
+        getProduct(1)
     }, [location.pathname, slugify])
+
+    const handlePageChange = (page) => {
+        if (page < 1 || page > totalPage) return;
+        setCurrentPage(page)
+        if (location.pathname === '/products') {
+            getProduct(page)
+        }
+    }
 
     const handleClickType = (i) => {
         if (i === typeActive) {
@@ -105,10 +118,7 @@ const ProductGroupPage = () => {
                     <div className={styleModule.product_block}>
                         {products.map((product, i) => 
                         {
-                            console.log(typeActive!==-1)
-                            console.log('productType', productType)
-
-                            if (typeActive!==-1 && !productType?.some(idProduct=>idProduct===product._id)) return
+                            if (typeActive!==-1 && !productType?.some(idProduct=>idProduct===product._id)) return null
                             return(
                             <CardComponent
                                 key={i}
@@ -123,6 +133,13 @@ const ProductGroupPage = () => {
                             />
                         )})}
                     </div>
+                    {location.pathname === '/products' && totalPage > 1 && (
+                        <div className={styleModule.paginationWrapper}>
+                            <button type="button" onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>Trước</button>
+                            <span>Trang {currentPage}/{totalPage}</span>
+                            <button type="button" onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPage}>Sau</button>
+                        </div>
+                    )}
                 </div>
                 {isLoading && <LoadingComponent />}
             </div>

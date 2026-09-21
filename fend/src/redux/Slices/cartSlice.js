@@ -75,6 +75,8 @@ export const cartSlice = createSlice({
         resetCart: (state) => {
             state.count = 0
             state.products = []
+            state.totalPrice = 0
+            state.totalDiscount = 0
         }
     },
 })

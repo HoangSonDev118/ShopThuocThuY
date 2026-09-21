@@ -184,7 +184,9 @@ const productController = {
     },
     getAllProductCard: async (req, res) => {
         try {
-            const products = await productService.getAllProductCard()
+            const limit = Number(req.query.limit) || 20
+            const page = Number(req.query.page) || 1
+            const products = await productService.getAllProductCard(limit, page)
             if (products) {
                 return res.status(200).json({
                     result: 'OKK',

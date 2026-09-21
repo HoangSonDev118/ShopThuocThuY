@@ -103,6 +103,34 @@
             }
         }
     }
+
+    .paginationWrapper {
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        color: #333;
+
+        button {
+            border: 1px solid #d08f00;
+            background: white;
+            color: #d08f00;
+            border-radius: 999px;
+            padding: 8px 18px;
+            font-weight: 600;
+            cursor: pointer;
+
+            &:disabled {
+                opacity: 0.45;
+                cursor: not-allowed;
+            }
+        }
+
+        span {
+            font-weight: 600;
+        }
+    }
 }
 
 @media (min-width: 1024px) and (max-width: 1240px) {

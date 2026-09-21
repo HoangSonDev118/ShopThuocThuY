@@ -75,17 +75,20 @@ function App() {
   const cart = useSelector((state) => state.cart)
 
   useEffect(() => {
-    const handleBeforeUnload = (event) => {
-      localStorage.setItem('dataCart', JSON.stringify(cart));
-    };
+    const savedCart = localStorage.getItem('dataCart');
+    if (!savedCart) return;
 
-    // Lắng nghe sự kiện 'beforeunload'
-    window.addEventListener('beforeunload', handleBeforeUnload);
+    try {
+      const parsedCart = JSON.parse(savedCart);
+      dispatch(setCart(parsedCart));
+    } catch (error) {
+      console.error('Invalid cart data in localStorage', error);
+      localStorage.removeItem('dataCart');
+    }
+  }, [dispatch]);
 
-    // Cleanup event listener khi component bị hủy
-    return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
-    };
+  useEffect(() => {
+    localStorage.setItem('dataCart', JSON.stringify(cart));
   }, [cart]);
 
 

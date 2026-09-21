@@ -156,15 +156,25 @@ const productService = {
         }
         )
     },
-    getAllProductCard: (limit = 8, page = 1) => {
+    getAllProductCard: (limit = 20, page = 1) => {
         return new Promise(async (resolve, reject) => {
             try {
-                //Tất cả đều Ok --> lấy tất cả users và trả về
+                const safeLimit = Number(limit) || 20
+                const safePage = Number(page) || 1
+                const totalProduct = await Product.countDocuments()
                 const products = await Product.find({},
-                    'product_imgs product_name product_slugify product_types product_discount product_status').limit(limit).skip((page - 1) * limit)
+                    'product_imgs product_name product_slugify product_types product_discount product_status')
+                    .limit(safeLimit)
+                    .skip((safePage - 1) * safeLimit)
+                    .sort({ createdAt: -1 })
+                    .lean()
+
                 if (products) {
                     resolve({
-                        products
+                        products,
+                        totalProduct,
+                        curentPage: safePage,
+                        totalPage: Math.ceil(totalProduct / safeLimit) || 1,
                     })
                 }
                 reject()

@@ -107,7 +107,7 @@ const SearchComponent = React.memo(({ value, setSearch }) => {
                     bgc='white'
                     border='2px solid rgb(208 143 0)'
                     br='20px'
-                    fsize='15px'
+                    fsize='16px'
                     handleOnChange={handleOnSearch}
                     inputValue={value}
                 />
